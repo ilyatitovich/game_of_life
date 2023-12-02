@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game of Life</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .controllers {
+            width: 60%;
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            padding: 1em 2em;
+            background-color: rgb(221, 221, 221);
+        }
+
+        .grid-settings {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+        }
+
+        input[type="number"] {
+            width: 6em;
+            padding: .5em .25em;
+        }
+
+        button {
+            cursor: pointer;
+            padding: .5em 1em;
+            margin: 0 .5em;
+        }
+
+        button:active {
+            transform: scale(.98);
+        }
+
+        canvas {
+            cursor: cell;
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="controllers">
+        <div class="game-buttons">
+            <button id="gameButton" disabled>Start</button>
+            <button id="resetButton">Reset</button>
+            <button id="randomizeButton">Randomize</button>
+            <span>GenTime: </span><span id="generation-time">--</span><span> ms</span>
+        </div>
+        <div class="grid-settings">
+            <span>
+                <label for="rows">Rows:</label>
+                <input type="number" id="rows" value="28" min="1">
+            </span>
+            <span>
+                <label for="cols">Columns:</label>
+                <input type="number" id="cols" value="28" min="1">
+            </span>
+            <button id="updateGridButton">Update Grid</button>
+        </div>
+    </div>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
